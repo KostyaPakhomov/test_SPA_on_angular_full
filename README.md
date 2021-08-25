@@ -1,3 +1,7 @@
+# Hosting
+
+Link to the app on Firebase [TestSPAOnAngular](https://testspaonangular.firebaseapp.com)
+
 # BytechTestApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
