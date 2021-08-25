@@ -1,0 +1,124 @@
+<form [formGroup]="clientForm" novalidate>
+  <label for="surname">Фамилия
+    <input formControlName="surname"
+           name="surname"
+           type="text"
+           id="surname"
+           placeholder="Иванов"
+           maxlength="10"
+           [ngStyle]="{
+           'border': _surname.invalid && (_surname.touched || _surname.dirty)
+           ? '2px red solid': ''
+           }"
+    >
+    <div class="required"
+      *ngIf="_surname.invalid && (_surname.touched || _surname.dirty)"
+    >
+      <span *ngIf="_surname.errors?.required"
+      >Обязательное поле</span
+      >
+      <span
+        *ngIf="_surname.errors?.pattern"
+      >Разрешаются только буквы.</span
+      >
+    </div>
+  </label>
+  <label for="name">Имя
+    <input formControlName="name"
+           name="name"
+           type="text"
+           id="name"
+           placeholder="Иван"
+           maxlength="10"
+           [ngStyle]="{
+           'border': _name.invalid && (_name.touched || _name.dirty)
+           ? '2px red solid' : ''
+           }"
+    >
+    <div class="required"
+      *ngIf="_name.invalid && (_name.touched || _name.dirty)"
+    >
+      <span *ngIf="_name.errors?.required"
+      >Обязательное поле</span
+      >
+      <span
+        *ngIf="_name.errors?.pattern"
+      >Разрешаются только буквы.</span
+      >
+    </div>
+  </label>
+  <label for="adultsCount">Количество взрослых
+    <input formControlName="adultsCount"
+           name="adultsCount"
+           type="text"
+           id="adultsCount"
+           placeholder="Кол-во взрослых"
+           maxlength="2"
+           [ngStyle]="{
+           'border': _adultsCount.invalid && (_adultsCount.touched || _adultsCount.dirty)
+           ? '2px red solid' : ''
+           }"
+    >
+    <div class="required"
+      *ngIf="_adultsCount.invalid && (_adultsCount.touched || _adultsCount.dirty)"
+    >
+      <span *ngIf="_adultsCount.errors?.required"
+      >Обязательное поле</span
+      >
+      <span *ngIf="_adultsCount.errors?.min"
+      >Значение должно быть больше или равно
+        {{_adultsCount.errors?.min.min}}</span
+      >
+      <span
+        *ngIf="_adultsCount.errors?.pattern"
+      >Разрешаются только цифры.</span
+      >
+      <span
+        *ngIf="_adultsCount.errors?.max"
+      >Количество человек не более: {{_adultsCount.errors?.max.max}}</span
+      >
+    </div>
+  </label>
+  <label for="childrenCount">Количество детей
+    <input formControlName="childrenCount"
+           name="childrenCount"
+           type="text"
+           id="childrenCount"
+           placeholder="Кол-во детей"
+           maxlength="2"
+           [ngStyle]="{
+           'border': _childrenCount.invalid && (_childrenCount.touched || _childrenCount.dirty)
+           ? '2px red solid' : ''
+           }"
+    >
+    <div class="required"
+      *ngIf="_childrenCount.invalid && (_childrenCount.touched || _childrenCount.dirty)"
+    >
+      <span *ngIf="_childrenCount.errors?.required"
+      >Обязательное поле</span
+      >
+      <span *ngIf="_childrenCount.errors?.min"
+      >Значение должно быть больше или равно
+        {{_childrenCount.errors?.min.min}}</span
+      >
+      <span
+        *ngIf="_childrenCount.errors?.pattern"
+      >Разрешаются только цифры.</span
+      >
+      <span
+        *ngIf="_childrenCount.errors?.max"
+      >Количество детей не более: {{_childrenCount.errors?.max.max}}</span
+      >
+    </div>
+  </label>
+    <input formControlName="pets"
+           name="pets"
+           type="checkbox"
+           id="pets"
+           class="checkbox"
+    >
+  <label for="pets">С животными</label>
+  <button class="button" (click)="setParams()" [disabled]="clientForm.invalid">
+    <span class="btn">Подобрать</span>
+  </button>
+</form>

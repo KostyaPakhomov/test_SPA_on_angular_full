@@ -1,0 +1,20 @@
+<div class="page">
+  <h2>
+    Добро пожаловать {{model?.name}} {{model?.surname}}!
+  </h2>
+  <h2>Усадьба для тех, кто хочет отдохнуть большой компанией,
+    подходящий вариант как для взрослых, так и
+    для детей. <span>(Максимум на 80 персон).</span>
+  </h2>
+  <div class="image"><span>Описание &rarr;</span></div>
+  <div class="params">
+    <div>Кол-во взрослых: {{model?.adultsCount}}</div>
+    <div *ngIf="model?.childrenCount != 0; else noChildren">Кол-во детей: {{model?.childrenCount}}</div>
+    <ng-template #noChildren>Без детей<br></ng-template>
+
+    <div *ngIf="model?.pets != false; else noPets">Есть животные</div>
+    <ng-template #noPets>Нет животных</ng-template>
+    <div>{{model.dateNow | date: 'dd.MM.yyyy HH:mm'}}</div>
+  </div>
+  <button class="button" routerLink=""><span class="btn">Назад &rarr;</span></button>
+</div>

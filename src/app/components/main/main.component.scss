@@ -1,0 +1,108 @@
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+  label{
+    display: flex;
+    flex-direction: column;
+    margin: 2vh 0;
+    font-size: 16px;
+    font-family: "Segoe Print", cursive;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    div span{
+      font-size: 14px;
+      text-shadow: 0 0 3px black;
+    }
+    &:not(:last-of-type)::before{
+      display: contents;
+      content: "*";
+      color: red;
+    }
+    & input{
+      margin-left: 5px;
+      padding: 10px;
+      border: 2px black solid;
+      border-radius: 10px;
+      outline: none;
+      box-shadow: 2px 2px 3px gray;
+      color: black;
+      &:focus-visible{
+        border-radius: 10px;
+        border: 2px dodgerblue solid;
+        box-shadow: 0 0 3px gray inset;
+      }
+      &:hover{
+        border: 2px cadetblue solid;
+      }
+    }
+    &:last-of-type{
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}
+
+.required{
+  span{
+    color: red;
+  }
+}
+
+[type^='text']{
+  width: 60vw;
+}
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  &+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+  &+label::before {
+    content: '';
+    display: inline-block;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 30%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    background-color: rgba(255,255,255,.4);
+    width: 25px;
+    height: 25px;
+  }
+  &:checked+label::before {
+    border-color: #0b76ef;
+    background-color: #0b76ef;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+  }
+  /* стили при наведении курсора на checkbox */
+  &:not(:disabled):not(:checked)+label:hover::before {
+    border-color: #b3d7ff;
+  }
+  /* стили для активного состояния чекбокса (при нажатии на него) */
+  &:not(:disabled):active+label::before {
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+  }
+  /* стили для чекбокса, находящегося в фокусе */
+  &:focus+label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  /* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+  &:focus:not(:checked)+label::before {
+    border-color: #80bdff;
+  }
+  /* стили для чекбокса, находящегося в состоянии disabled */
+  &:disabled+label::before {
+    background-color: #e9ecef;
+  }
+}

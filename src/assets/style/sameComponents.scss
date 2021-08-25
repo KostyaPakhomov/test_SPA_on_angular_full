@@ -1,0 +1,64 @@
+.page{
+  width: 100%;
+  height: 98%;
+  position: relative;
+  h2{
+    color: white;
+    font-family: "Segoe Print", cursive;
+    font-size: 24px;
+    margin: 10px 20px;
+  }
+  .image{
+    width: 70%;
+    height: 60%;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px white;
+    position: relative;
+    span{
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 20px;
+      color: white;
+      font-family: "Segoe Print", cursive;
+      font-size: 18px;
+      text-shadow: 2px 2px 3px black;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.1, 1.1);
+      }
+      &:active{
+        transform: scale(.9,.9);
+      }
+    }
+  }
+  .params{
+    position: absolute;
+    bottom: 10px;
+    right: 7px;
+    width: 140px;
+    height: 60px;
+    color: wheat;
+    font-size: 14px;
+    text-shadow: 0 0 5px black;
+  }
+  .button{
+    position: absolute;
+    bottom: 10px;
+    left: 7px;
+  }
+}
+
+@media only all and (max-width: 500px) {
+  .page{
+    .image{
+      width: 90%;
+      height: 25%;
+    }
+  }
+}
